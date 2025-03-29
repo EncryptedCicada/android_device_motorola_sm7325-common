@@ -1,2 +1,6 @@
 hal_client_domain(hal_audio_default, hal_health);
 allow hal_audio_default fwk_sensor_hwservice:hwservice_manager find;
+
+# Allow audio HAL to access speaker protection calibration files
+allow hal_audio_default audio_factory_file:dir search;
+allow hal_audio_default audio_factory_file:file { getattr open read };
